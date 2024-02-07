@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let playerA = prompt('첫번째 사람의 가위바위보를 입력하세요');
+        let playerB = prompt('두번째 사람의 가위바위보를 입력하세요');
+
+        document.write
+        // 두 사람의 값이 같은 경우
+        if (playerA == playerB) {
+            document.write('결과 : 비겼습니다')
+
+            // playerA가 가위를 낸 경우 발생할 수 있는 경우의 수들
+        } while (playerA == '가위') {
+            if (playerB == '보') {
+                document.write('playerA 승리')
+            } else if (playerB == '바위') {
+                document.write('playerB 승리')
+            } 
+            document.write(`<br>첫번째 사람: ${playerA} 두번째 사람: ${playerB}`)
+            break;
+
+            // playerA가 보를 낸 경우 발생할 수 있는 경우의 수들
+        } while (playerA == '보') {
+            if (playerB == '가위') {
+                document.write('playerB 승리')
+            } else if (playerB == '바위') {
+                document.write('playerA 승리')
+            } 
+            document.write(`<br>첫번째 사람: ${playerA} 두번째 사람: ${playerB}`)
+            break;
+
+            // playerA가 바위를 낸 경우 발생할 수 있는 경우의 수들
+        } while (playerA == '바위') {
+            if (playerB == '가위') {
+                document.write('playerA 승리')
+            } else if (playerB == '보') {
+                document.write('playerB 승리')
+            } 
+            document.write(`<br>첫번째 사람: ${playerA} <br>두번째 사람: ${playerB}`)
+            break;
+        }
+
+
+    </script>
+</body>
+
+</html>
