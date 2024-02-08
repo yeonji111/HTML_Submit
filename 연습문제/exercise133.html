@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise133</title>
+</head>
+<body>
+    <script>
+        // BMI = 몸무게 / (키/100)^2
+
+
+        function cal(){
+        let cm = prompt('키를 입력해주세요')
+        let kg = prompt('몸무게를 입력해주세요')
+
+        let bmi = kg/((cm/100)**2);
+        let result = '';
+        
+            if(bmi > 25){
+            // bmi 26이상 비만
+            result = '비만';
+
+        } else if(bmi >= 24 && bmi <= 25){
+            // bmi 24~25 과체중
+            result = '과체중';
+
+        } else if(bmi >= 18.5 && bmi < 24){
+            // bmi 18.5~23점 정상
+            result = '정상';
+        } else if(bmi < 18.5){
+            // bmi 18.5 미만 저체중
+            result = '저체중';
+
+        }
+    
+        document.write(result)
+        
+        }
+       
+        cal();
+
+    </script>
+    
+</body>
+</html>

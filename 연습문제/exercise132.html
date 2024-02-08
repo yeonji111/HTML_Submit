@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise132</title>
+</head>
+<body>
+    <script>
+
+        function larger(arr) {
+             let temp = 0;
+             for (let i = 0; i < arr.length; i++) {
+                 if (temp < arr[i]) {
+                    temp = arr[i] +" "
+                 }
+             }
+            return temp
+         }
+
+         document.write(`가장 큰 수는 ${ larger([1, 3, 5, 7, 9, 11, 13, 15, 17, 19])}`)
+       
+    </script>
+    
+</body>
+</html>
