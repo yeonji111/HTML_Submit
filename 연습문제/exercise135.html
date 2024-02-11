@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        // 두 개의 수를 입력받고 둘 중 큰 수 확인
-        // A 는 4이고 B는 12라고 가정
+        // 두 수를 입력받아 최대공약수 구하는 함수 만들기
 
-        let numA = parseInt(prompt('첫번째 수를 입력해주세요')) 
-        let numB = parseInt(prompt('두번째 수를 입력해주세요')) 
+        function greatest(){
 
-        let arrA = []
-         while(numA % 2 == 0 || numA % 2 == 1){
-            let re = numA/2;
-            arrA.push(re);
-         }
-         document.write(arr)
+        // 1. 두 수를 입력받기
+        let numA = prompt('숫자를 입력해주세요');
+        let numB = prompt('숫자를 입력해주세요');
 
-          
-            
-        // }
+        let small = 0; 
+        let result = 0;
 
+        // 2. 두 수를 비교하여 작은 수 찾기
+        if (numA > numB) {
+            small = numB
+        }
+        else { small = numA }
+
+        // 최대공약수는 0일 수 없고 작은 수보다 큰 값이 최대공약수일 수가 없으니
+        // 3. 작은 값을 기준으로 두 수를 i를 나누었을때 나머지가 0인 값 배열(소인수분해 확인용)과 변수(최대공약수)에 담기
+        for (let i = 1; i <= small; i++) {
+            if (numA % i == 0 && numB % i == 0) {
+                result = i;
+            }
+        }
+        document.write(`${numA}과 ${numB}의 최대공약수 : ${result}`)
+    }
+
+    // 최대공약수 함수 호출
+    greatest();
 
     </script>
 </body>
+
 </html>
