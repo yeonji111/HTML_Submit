@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = [5,2,9,1,7,6,0,4];
+
+        // 1번 오름차순 버블정렬
+        // 작은 수가 앞, 큰 수가 뒤 
+        // 움직여야하는건 큰 수
+        for(let i = 0; i < arr.length - 1; i++){
+            for(let j = 0; j < arr.length -1 - i; j++){
+                if(arr[j] > arr[j+1]){
+                    let tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+
+                }
+            }
+        }
+        document.write(`arr의 오름차순 버블 정렬 결과 : [ ${arr} ] <br>`)
+
+
+        // 2번 내림차순 버블정렬
+        // 큰 수가 앞, 작은 수가 뒤
+        // 움직여야하는건 작은 수
+        arr = [5,2,9,1,7,6,0,4];
+        for(let i = 0; i < arr.length-1; i++){
+            for (let j = 0; j < arr.length -1 -i; j++){
+                if(arr[j] < arr[j+1]){
+                    let tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                }
+            }
+        }
+        document.write(`arr의 내림차순 버블 정렬 결과 : [ ${arr} ]`)
+
+
+    </script>
+</body>
+</html>
