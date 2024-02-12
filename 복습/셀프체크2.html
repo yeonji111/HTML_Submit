@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr,td,table {
+            width: 500px;
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+        caption{
+            font-weight: bold;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+        document.write(`<table>`)
+        document.write(`<caption> 표만들기 </caption>`)
+
+        document.write(`<td colspan = 3> 구구단 </td>`)
+        // 구구단
+        for (let i = 1; i < 10; i++) {
+
+            if(i % 3 == 1){
+                document.write(`<tr>`)
+            }
+
+            document.write(`<td>`)
+            for (let j = 1; j < 10; j++) {
+                document.write(`${i} * ${j} = ${i * j} <br>`);
+            }
+
+            document.write(`</td>`);
+
+        }
+
+
+    </script>
+</body>
+
+</html>
