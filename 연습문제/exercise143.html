@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise143.html</title>
+</head>
+
+<body>
+    <script>
+
+        // date1 은 비교할 2020.01.01 , date2는 실행했을 시점의 날짜
+        let date1 = new Date("2000-01-01");
+        let today = new Date();
+
+        // 둘의 날짜 차이를 밀리초로 계산
+        let diff = today.getTime() - date1.getTime();
+
+        // diff에 담긴 밀리초의 값을 일수로 변환
+        let year = diff / (1000 * 60 * 60 * 24 * 30 * 12);
+        let day = diff / (1000 * 60 * 60 * 24);
+
+        // 소숫점 쳐내기
+        year = Math.round(year);
+        day = Math.round(day);
+
+        // n년 과 n일 출력
+        document.write(`약 ${year}년이 지났습니다 <br>`)
+        document.write(`약 ${day}일이 지났습니다`)
+
+    </script>
+</body>
+
+</html>

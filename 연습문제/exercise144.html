@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise144.html</title>
+</head>
+
+<body>
+    <script>
+        let today = new Date();
+        let day500 = today.getTime() + 500 * 1000 * 60 * 60 * 24;
+
+        let resultDate = new Date(day500);
+        document.write(`500일: ${resultDate.toLocaleDateString()}`)
+
+
+        // const fri = new Date();
+        // fri.setTime(fri.getTime() + 500 * 24 * 60 * 60 * 1000)
+        // document.write(fri.toLocaleDateString())
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise142.html</title>
+</head>
+
+<body>
+
+    <!-- 중복되지 않는 정수 5개를 입력받아 출력-->
+    <script>
+        // let arr = []
+
+        // for (let i = 1; i < 6; i++) {
+        //     arr.push(i)
+        // }
+        // document.write(arr)
+
+
+        /* 중복되지 않는 정수 5개를 입력 받아 출력하시오.
+        출력은 documnet.write() 함수를 이용한다. */
+
+        const numbers = [];
+        // for (let i = 0; i < 5; i++) {
+        //     numbers[i] = prompt("정수를 입력하세요.")
+
+        //     for (let j = 0; j < i; j++) {
+        //         if (numbers[j] == numbers[i]) {
+        //             i--;
+        //             break;
+        //         } // numbers.push(num)
+        //     }
+        // }
+        // document.write(numbers);
+
+
+        for (let i = 0; i < 5; i++) {
+            let number = prompt("정수를 입력하세요.");
+            let flag = true;
+            for (let j = 0; j < i; j++) {
+                if (numbers[j] == number) {
+                    flag = false;
+                    i--;
+                }
+            }if(flag)
+            numbers.push(number);
+        }
+        document.write(numbers)
+
+
+    </script>
+
+</body>
+
+</html>

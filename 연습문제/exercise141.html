@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise141.html</title>
+</head>
+
+<body>
+
+    <button id="stop">취소</button>
+
+    <script>
+        // const nameArr = new Array();
+        let arr = []; // 리터럴 생성 방식
+
+        // + 취소버튼에 대한 이벤트?를 다룰 수 있게 객체 생성
+        let stopBtn = document.getElementById("stop");
+
+        // 취소 버튼을 눌렀을때 안내메세지
+        // Q. 내가 하고 싶은건 prompt 전에 취소버튼이 보여지는 상태에서
+        // 사용자에게 데이터를 입력받는건데 어떻게 하는건지 모르겠음
+
+        stopBtn.addEventListener('click', function () {
+            document.write(`사용자가 입력을 중단했습니다. <br>저장된 이름 [${arr}] `);
+        })
+
+
+        // 사용자에게 이름 입력받아 배열에 데이터 추가
+        while (true) {
+            let name = prompt("이름을 입력해주세요")
+
+            if (name === "" || name === null) {
+                break;
+            }
+            arr.push(name);
+        }
+
+        if (arr.length > 0) {
+            document.write(`저장된 이름 [${arr}]`)
+
+        } else {
+            document.write(`배열에 저장된 이름이 없습니다.`)
+        }
+
+
+
+    </script>
+</body>
+
+</html>

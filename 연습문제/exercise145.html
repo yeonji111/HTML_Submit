@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise145.html</title>
+</head>
+
+<body>
+    <script>
+        let user = prompt('가위 바위 보를 입력해주세요')
+
+        if (user == '가위' || user == '바위' || user == '보') {
+            // 컴퓨터가 낼 수 있는 가위,바위,보가 담긴 배열 생성
+            // 0 ~ 2 까지 랜덤한 인덱스 번호에 담긴 값을 출력
+            const computerChoice = ['가위', '바위', '보'];
+            const computerOutput = computerChoice[Math.floor(Math.random() * 3)];
+
+            // 무승부
+            if (user === computerOutput) {
+                document.write(`사용자 : ${user} <br> 컴퓨터 : ${computerOutput} <br> 결과 : 무승부`)
+            }
+
+            // 사용자 승리
+            else if (
+                (user == '가위' && computerOutput == '보') ||
+                (user == '바위' && computerOutput == '가위') ||
+                (user == '보' && computerOutput == '바위')) {
+                document.write(`사용자 : ${user} <br> 컴퓨터 : ${computerOutput} <br> 결과 : 사용자 승리`)
+            }
+
+            // 컴퓨터 승리
+            else {
+                document.write(`사용자 : ${user} <br> 컴퓨터 : ${computerOutput} <br> 결과 : 컴퓨터 승리`)
+            }
+        }
+    </script>
+</body>
+
+</html>
