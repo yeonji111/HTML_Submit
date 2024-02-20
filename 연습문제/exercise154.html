@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 2</title>  
+  <link rel="stylesheet" href="exercise154.css">
+  <style>
+   
+  </style>
+</head>
+<body>
+  <div id="noti-box">
+  <!-- <div class = "noti">알림내용1</div>
+  <div class = "noti">알림내용2</div> -->
+  </div>
+  
+  
+  <button id="bttn">클릭!</button>
+
+  <script>
+    const btn = document.querySelector('#bttn');
+   
+    const notiBox = document.querySelector("#noti-box")
+    btn.addEventListener('click',function () {
+      const divEl = document.createElement('div')
+      const textEl = document.createTextNode('알림 내용이 표시됩니다.');
+      divEl.classList.add("noti")
+
+      divEl.appendChild(textEl);
+      notiBox.appendChild(divEl);
+     
+      // notiBox.innerHTML += "<div class = 'noti'>알림 내용이 표시됩니다.</div>"
+      setTimeout(function(){
+      notiBox.removeChild(divEl)},3000)
+
+    });
+
+
+    
+
+    
+    
+  </script>
+</body>
+</html>

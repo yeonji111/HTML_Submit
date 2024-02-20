@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로또 번호 생성기</title>
+  <style>
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+    }
+
+    button {
+      width: 200px;
+      padding: 20px;
+      font-size: 1.2em;
+    }
+
+    #result {
+      padding: 20px;
+      font-size: 2.5em;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>로또 번호 생성기</h1>
+    <button>클릭</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('button');
+    btn.addEventListener('click', makeLotto)
+    const output = document.querySelector('#result')
+
+    function makeLotto() {
+      let lotto = [];
+
+      for (let i = 0; i < 6; i++) {
+        let num = Math.floor(Math.random() * 45) + 1;
+
+        for (let j = 0; j < i; j++) {
+          while (num == lotto[j]) {
+            num = Math.floor(Math.random() * 45 + 1);
+          }
+        }
+
+        lotto.push(num);
+      }
+      // 나는 왜 버튼 위에 뜨냐구 ㅠㅠㅠ
+      return output.innerText = lotto;
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
