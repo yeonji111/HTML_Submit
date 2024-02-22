@@ -7,51 +7,55 @@
 </head>
 <body>
     <form action="form">
-        이름 : <input type="text" id = "name" > <br>
-        성별 : <input type="radio" name="man" id="man">남 
-        <input type="radio" name="female" id="female">여 <br>
-        취미 : <input type="checkbox" name="trav" id="trav">  여행
-        <input type="checkbox" name="book" id="book" >  독서
-        <input type="checkbox" name="movie" id="movie">  영화감상
-        <input type="checkbox" name="b" id="b">  바둑
-        <input type="checkbox" name="ja" id="ja">  장기
-        <input type="checkbox" name="mou" id="mou">  등산
-        <input type="checkbox" name="fi" id="fi">  낚시
+        이름 : <input type="text" id="name"> <br>
+        성별 : <input type="radio" name="gender" id="man" value = "남자">남 
+        <input type="radio" name="gender" id="female" value = "여자">여 <br>
+        취미 : <input type="checkbox" name="hobby" id="trav" value = "여행">  여행
+        <input type="checkbox" name="hobby" id="book" value = "독서">  독서
+        <input type="checkbox" name="hobby" id="movie" value = "영화감상">  영화감상
+        <input type="checkbox" name="hobby" id="b" value = "바둑">  바둑
+        <input type="checkbox" name="hobby" id="ja" value = "장기">  장기
+        <input type="checkbox" name="hobby" id="mou" value = "등산">  등산
+        <input type="checkbox" name="hobby" id="fi" value = "낚시">  낚시
 
         <div>
-            <button id = "result">결과 출력</button>
+            <button id="result">결과 출력</button>
         </div>
         <textarea name="summary" id="summary" cols="100" rows="10"></textarea>
     </form>
-    
 
     <script>
-        const btn = document.querySelector("button");
-        const name = document.querySelector("#name").value;
-        const gender = document.querySelectorAll("[type=radio]");
-        const like = document.querySelectorAll("[type=checkbox]")
-        const result = document.querySelector("textarea")
-        console.log(result)
-        const act = [];
-        btn.addEventListener('click',
-        function(){
-            for(let i = 0; i < gender.length; i++){
-                if(gender[i].checked == true){
-                    const gender = gender[i].value;
+        const btn = document.querySelector("#result");
+
+        btn.addEventListener('click', function (ev) {
+            ev.preventDefault();
+            const name = document.querySelector("#name").value;
+
+            const genderOptions = document.querySelectorAll("[name=gender]");
+            let selectedGender;
+            for (let i = 0; i < genderOptions.length; i++) {
+                if (genderOptions[i].checked === true) {
+                    selectedGender = genderOptions[i].value;
+                    break;
                 }
             }
 
-            for(let i = 0; i < like.length; i++){
-                if(like[i].checked == true){
-                  act.push(like[i]);
-                }
-            }
-            document.querySelector("textarea").value = `${name}씨!!
-            당신은 ${gender}이고
-            취미는 ${act}이군요
-            `;
-        })
+            const hobbyOptions = document.querySelectorAll("[name=hobby]:checked");
+            const selectedHobbies = [];
+            for(let i = 0; i < hobbyOptions.length; i++){
+                let tmp = hobbyOptions[i].value
+                selectedHobbies.push(tmp)
+            }             // -> 반복문 없이 짧게 줄여쓸 수 있었음..ㅠ const selectedHobbies = Array.from(hobbyOptions).map(hobby => hobby.value); 
 
+            if(selectedHobbies.length === 0){
+                document.querySelector("#summary").value = `${name}씨!!\n당신은 ${selectedGender}이고\n취미는 없군요`
+            } else {
+                document.querySelector("#summary").value = `${name}씨!!\n당신은 ${selectedGender}이고\n취미는 ${selectedHobbies.join(", ")}이군요`;
+            }
+  
+            // console.log(selectedHobbies) - 취미 없는 경우 확인용
+          
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    select{
+        width:300px;
+        height: 500px;
+    }
+</style>
+<body>
+    <h1>select객체 예제</h1>
+    <select name="box1" id="box1"></select>
+    <button id = "inputOne"> > </button>
+    <button id = "inputAll"> >> </button>
+    <button id = "moveOne"> < </button>
+    <button id = "moveAll"> << </button>
+    <select name="box2" id="box2"></select><br>
+      
+    <div>
+        <br>
+        <input type="text" name = "inputNumber" id = "inputNumber"> <button id = "add" name = "add">추가하기</button>
+    </div>
+   
+
+
+    <script>
+      const addBtn = document.querySelector("#add"); // 추가하기 버튼
+      const box1 = document.querySelector('#box1');
+    const btn1 = document.querySelector("#inputOne");
+
+      addBtn.addEventListener('click', add)
+        btn1.addEventListener('click', move)
+    
+
+        
+      // 데이터 추가 함수
+      function add () {
+        const content = document.querySelector("#inputNumber").value // 추가할 데이터 입력창
+        let option = document.createElement("option");
+        option.value = content;
+        option.text = content;
+        box1.add(option)
+      }
+      // 데이터 이동 함수
+      function move(){
+        
+      }
+
+
+    </script>
+
+</body>
+</html>

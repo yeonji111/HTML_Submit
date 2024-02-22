@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, tr, td{
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <table>
+
+        <tr>
+            <td>결제 방법
+                <input type="radio" value="card" id="card" name="paymentMethod">카드결제
+                <input type="radio" value="cash" id="cash" name="paymentMethod">무통장입금
+            </td>
+        </tr>
+        <!-- <tr>
+            <td>카드종류 : <select name="bank" id="bank">
+                    <option value="kookmin">국민은행</option>
+                </select>
+                카드번호: <input type="text" id="cardNumber">
+        </tr> -->
+    </table>
+
+    <script>
+        const payment = document.querySelectorAll("[name = paymentMethod]"); // 배열에 두개 담겨져있음
+        // const selectedCard = document.querySelector("#card");
+        // const selectedCash = document.querySelector("#cash");
+
+        payment.forEach(function (userChoice) {
+            userChoice.addEventListener('change', function () {
+                if (userChoice.value == "card") {
+                    showCard();
+
+                } else if (userChoice.value == "cash") {
+                    showCash();
+                }
+            })
+        })
+
+        // if의 순서때문에 클릭할때마다 해당하는 이벤트가 실행되지 않는건가 싶어서
+        // 해봤는데 안됨 마찬가지로 한번 선택하면 끝나버림
+        // payment.forEach(function (userChoice) {
+        //     if (userChoice.value == "card") {
+        //         userChoice.addEventListener('click', function () {
+        //             showCard();
+        //         })
+        //     }
+        //     else if (userChoice.value == "cash") {
+        //         userChoice.addEventListener('click', function () {
+        //             showCash();
+        //         })
+        //     }
+        // })
+
+        const table = document.querySelector("table")
+
+        // 카드결제를 눌렀을 경우 실행할 함수
+        function showCard() {
+            table.innerHTML += `<tr>
+            <td>카드종류 : <select name="bank" id="bank">
+                    <option value="card">신한카드</option>
+                    <option value="card">삼성카드</option>
+                    <option value="card">BC카드</option>
+                    <option value="card">현대카드</option>
+                </select>
+                카드번호: <input type="text" id="cardNumber">
+        </tr>`
+        }
+
+        // 무통장입금을 눌렀을 경우 실행할 함수
+        function showCash() {
+            table.innerHTML += `<tr>
+            <td>입금은행 : <select name="bank" id="bank">
+                    <option value="bank">국민은행</option>
+                    <option value="bank">하나은행</option>
+                    <option value="bank">우리은행</option>
+                    <option value="bank">우체국</option>
+                </select>
+                계좌번호: <input type="text" id="accountNumber">
+        </tr>`
+        }
+
+
+
+    </script>
+</body>
+
+</html>

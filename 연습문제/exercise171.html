@@ -42,51 +42,50 @@
     </ol>
 
     <script>
+        let startEvent;
+
         // 배경색과 글자색을 1초마다 랜덤하게 변경
         startBtn = document.querySelector('#start');
         stopBtn = document.querySelector('#stop');
         bg = document.querySelector('body');
 
-            // 변수 스코프가 맞지 않음 
+        startBtn.addEventListener('click', startEv)
+
+        stopBtn.addEventListener('click', function () {
+            clearInterval(startEvent);
+        });
+
+
+        function startEv() {
+            startEvent = setInterval(function () {
+                /*    배열에 컬러를 담아서 랜덤하게 바꾼 첫번째 방법
+                 for (let i = 0; i < col.length; i++) {
+                    i = Math.floor(Math.random() * col.length + 1)
+                    let bgColor = col[i]
+                    let textColor = textCol[i]
+                    document.body.style.backgroundColor = `${bgColor}`
+                    document.body.style.color = `${textColor}`
+                }  */
+                document.body.style.backgroundColor = `rgb(${getRgb()}`
+                document.body.style.color = `rgb(${getRgb()}` // rgb값을 랜덤하게 만드는 함수를 사용한 방법
+            }, 1000)
+        }
+
+        // 첫번째 시도 방법 ) 색깔을 15개씩 담은 배열 생성
         const col = ["Aqua", "Black", "Blue", "Fuchsia", "Gray", "Green", "Lime", "Maroon", "Navt"
             , "Olive", "Red", "Sliver", "Teal", "Yellow", "Orange"]
 
         const textCol = ["Beige", "Bisque", "Darkblue", "Darkgreen", "DarkKhaki", "Deeppink", "Dimgray"
             , "Darkviolet", "Firebrick", "Gold", "Lavenderblush", "Lavender", "Lightcoral", "Lightgoldenrodyellow", "Lightpink"]
 
-        startBtn.addEventListener('click', startEv/*setInterval(function () {
-            for (let i = 0; i < col.length; i++) {
-                i = Math.floor(Math.random() * col.length + 1)
-                let bgColor = col[i]
-                let textColor = textCol[i]
-                document.body.style.backgroundColor = `${bgColor}`;
-                document.body.style.color = `${textColor}`;
+        // 두번째 방법 ) rgb값 랜덤으로 만드는 함수를 이벤트에서 호출하기
+        function getRgb() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
 
-            }
-        }, 1000)*/
-        )
-
-        stopBtn.addEventListener('click', function () {
-            // document.querySelector('#start').removeEventListener('click', startEv);
-            clearInterval('startEvent');
-
-        })
-
-
-        function startEv(){
-            startEvent = setInterval(function () {
-            for (let i = 0; i < col.length; i++) {
-                i = Math.floor(Math.random() * col.length + 1)
-                let bgColor = col[i]
-                let textColor = textCol[i]
-                document.body.style.backgroundColor = `${bgColor}`
-                document.body.style.color = `${textColor}`
-
-            }
-        }, 1000)
-
+            return [r, g, b];
         }
-
     </script>
 </body>
 
