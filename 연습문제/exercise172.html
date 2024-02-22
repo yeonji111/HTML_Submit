@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="form">
+        이름 : <input type="text" id = "name" > <br>
+        성별 : <input type="radio" name="man" id="man">남 
+        <input type="radio" name="female" id="female">여 <br>
+        취미 : <input type="checkbox" name="trav" id="trav">  여행
+        <input type="checkbox" name="book" id="book" >  독서
+        <input type="checkbox" name="movie" id="movie">  영화감상
+        <input type="checkbox" name="b" id="b">  바둑
+        <input type="checkbox" name="ja" id="ja">  장기
+        <input type="checkbox" name="mou" id="mou">  등산
+        <input type="checkbox" name="fi" id="fi">  낚시
+
+        <div>
+            <button id = "result">결과 출력</button>
+        </div>
+        <textarea name="summary" id="summary" cols="100" rows="10"></textarea>
+    </form>
+    
+
+    <script>
+        const btn = document.querySelector("button");
+        const name = document.querySelector("#name").value;
+        const gender = document.querySelectorAll("[type=radio]");
+        const like = document.querySelectorAll("[type=checkbox]")
+        const result = document.querySelector("textarea")
+        console.log(result)
+        const act = [];
+        btn.addEventListener('click',
+        function(){
+            for(let i = 0; i < gender.length; i++){
+                if(gender[i].checked == true){
+                    const gender = gender[i].value;
+                }
+            }
+
+            for(let i = 0; i < like.length; i++){
+                if(like[i].checked == true){
+                  act.push(like[i]);
+                }
+            }
+            document.querySelector("textarea").value = `${name}씨!!
+            당신은 ${gender}이고
+            취미는 ${act}이군요
+            `;
+        })
+
+    </script>
+</body>
+</html>
